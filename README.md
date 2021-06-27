@@ -9,3 +9,12 @@ For having an interactive console its important:
 * Create all classes used for AirBnB (User, State, City, Place…) that inherit from BaseModel
 * Create the first abstracted storage engine of the project: File storage.
 * Create all unittests to validate all our classes and storage engine
+
+
+<h2 align="center">Authors 👩👩👩</h2> <br>
+
+- Ana María Román Valencia | [Github](https://github.com/anamariaroman) | [Twiter](https://twitter.com/AnaMari77939013)
+- Helena Cortés Gómez | [Github](https://github.com/helectron) | [Twiter](https://twitter.com/helectron)
+- Luz Adriana Baza | [Github](https://) | [Twiter](https://twitter.com/baza_luz)
+
+<div dir="rtl">27/06/2021</div>
