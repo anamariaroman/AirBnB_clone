@@ -10,6 +10,13 @@ For having an interactive console its important:
 * Create the first abstracted storage engine of the project: File storage.
 * Create all unittests to validate all our classes and storage engine
 
+<h2>Instalation 🔧</h2> <br>
+
+- Clone this repository in your terminal: `https://github.com/anamariaroman/AirBnB_clone.git`
+- Access into AirBnb directory: `cd AirBnB_clone`
+- Run hbnb in interactive mode: `./console`
+- Run hbnb in non-interactive mode: `echo "<command>" | ./console.py`
+
 <h3>Interactive mode</h3> <br>
 
 ```
@@ -48,6 +55,7 @@ EOF  help  quit
 (hbnb)
 $
 ```
+<h2>Examples</h2> <br>
 
 <h2 align="center">Authors 👩👩👩</h2> <br>
 
