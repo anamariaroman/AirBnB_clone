@@ -25,6 +25,29 @@ EOF  help  quit
 (hbnb) quit
 $
 ```
+<h3>Non-interactive mode: (like the Shell project in C)</h3> <br>
+
+```
+$ echo "help" | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb)
+$
+$ cat test_help
+help
+$
+$ cat test_help | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb)
+$
+```
 
 <h2 align="center">Authors 👩👩👩</h2> <br>
 
