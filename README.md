@@ -10,6 +10,21 @@ For having an interactive console its important:
 * Create the first abstracted storage engine of the project: File storage.
 * Create all unittests to validate all our classes and storage engine
 
+<h3>Interactive mode</h3> <br>
+
+```
+$ ./console.py
+(hbnb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+
+(hbnb)
+(hbnb)
+(hbnb) quit
+$
+```
 
 <h2 align="center">Authors 👩👩👩</h2> <br>
 
