@@ -1,4 +1,4 @@
-## AirBnB_clone
+<h1 align="center">AirBnB clone - The console 💻</h1> <br>
 
 ![HBNB](https://raw.githubusercontent.com/anamariaroman/AirBnB_clone/master/images/hbnb.png)
 
