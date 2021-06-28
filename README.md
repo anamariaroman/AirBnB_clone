@@ -61,6 +61,6 @@ $
 
 - Ana María Román Valencia | [Github](https://github.com/anamariaroman) | [Twiter](https://twitter.com/AnaMari77939013)
 - Helena Cortés Gómez | [Github](https://github.com/helectron) | [Twiter](https://twitter.com/helectron)
-- Luz Adriana Baza | [Github](https://) | [Twiter](https://twitter.com/baza_luz)
+- Luz Adriana Baza | [Github](https://github.com/luzbaza) | [Twiter](https://twitter.com/baza_luz)
 
 <div dir="rtl">27/06/2021</div>
