@@ -26,12 +26,12 @@ class BaseModel:
         self.updated_at = datetime.now()
         models.storage.save()
 
-	def to_dict(self):
-		""" 
-		Returns a dictionary containing 
-		all key/values of __dict__ of the instance 
-		"""	
-    	dictionary = self.__dict__.copy()
-		dictionary["created_at"] = self.created_at.isoformat()
-		dictionary["updated_at"] = self.updated_at.isoformat()
-		return dictionary
+    def to_dict(self):
+        """
+        Returns a dictionary containing
+        all key/values of __dict__ of the instance
+        """
+        dictionary = self.__dict__.copy()
+        dictionary["created_at"] = self.created_at.isoformat()
+        dictionary["updated_at"] = self.updated_at.isoformat()
+        return dictionary
