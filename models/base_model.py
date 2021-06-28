@@ -22,12 +22,16 @@ class BaseModel:
             .format(__class__.__name__, self.id, self.__dict__)
 
     def save(self):
-    "actualiza el atributo de instancia updated_at con datetime actual"
+        """ Updates the current datetime """
+        self.updated_at = datetime.now()
+        models.storage.save()
 
-    """
-    def to_dict(self):
-    retorna un diccionario que contiene todas las key/values de la
-    instancia __dict__
-    created_at y updated_at debesn convertirse a objeto de cadena en formato ISO:
-    format: %Y-%m-%dT%H:%M:%S.%f (ex: 2017-06-14T22:31:03.285259)"""
-    """
+	def to_dict(self):
+		""" 
+		Returns a dictionary containing 
+		all key/values of __dict__ of the instance 
+		"""	
+    	dictionary = self.__dict__.copy()
+		dictionary["created_at"] = self.created_at.isoformat()
+		dictionary["updated_at"] = self.updated_at.isoformat()
+		return dictionary
