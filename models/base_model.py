@@ -4,22 +4,24 @@ import uuid
 from datetime import datetime
 import models
 
+
 class BaseModel:
     """ Base class model that defines all
     methods and attributes for the other classes """
-    
     def __init__(self, *args, **kwargs):
         """ Constructor to initialize the attribute with args and kwars """
-        # if kwargs:
-        #    if id in kwargs:
-        #       self.id = kwargs[id]
-        if "created_at" in kwargs and type(kwargs["created_at"]) is str:
-            self.created_at = datetime.strptime(
-                kwargs["created_at"], "%Y-%m-%dT%H:%M:%S.%f")
+        if kwargs:
+            for key in kwargs:
+                if "created_at" in kwargs and type(kwargs["created_at"]) is str:
+                    self.created_at = datetime.strptime(
+                        kwargs["created_at"], "%Y-%m-%dT%H:%M:%S.%f")
 
-        if "updated_at" in kwargs and type(kwargs["updated_at"]) is str:
-            self.updated_at = datetime.strptime(
-                kwargs["updated_at"], "%Y-%m-%dT%H:%M:%S.%f")
+                if "updated_at" in kwargs and type(kwargs["updated_at"]) is str:
+                    self.updated_at = datetime.strptime(
+                        kwargs["updated_at"], "%Y-%m-%dT%H:%M:%S.%f")
+
+                if key != "__class__" and key != "created_at" and key != "updated_at":
+                    setattr(self, key, kwargs[key])
 
         else:
             self.id = str(uuid.uuid4())
