@@ -4,24 +4,26 @@ import uuid
 from datetime import datetime
 import models
 
-
 class BaseModel:
     """ Base class model that defines all
     methods and attributes for the other classes """
 
     def __init__(self, *args, **kwargs):
         """ Constructor to initialize the attribute with args and kwars """
+        value_format = "%Y-%m-%dT%H:%M:%S.%f"
         if kwargs:
-            if "created_at" in kwargs and type(kwargs["created_at"] is str:
-                kwargs["created_at"] = datetime.strptime(
-                    kwargs["created_at"], "%Y-%m-%dT%H:%M:%S.%f")
+            type_number = type(kwargs["created_at"])
+            type_check = type(kwargs["updated_at"])
+            if "created_at" in kwargs and type_number is str:
+                self.created_at = datetime.strptime(
+                    kwargs["created_at"], value_format)
 
-            if "updated_at" in kwargs and type(kwargs["updated_at"] is str:
-                kwargs["updated_at"] = datetime.strptime(
-                    kwargs["created_at"], "%Y-%m-%dT%H:%M:%S.%f")
+            if "updated_at" in kwargs and type_check is str:
+                self.updated_at = datetime.strptime(
+                    kwargs["updated_at"], value_format)
 
         else:
-            self.id = str(uuid.uuid4())
+            self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
 
