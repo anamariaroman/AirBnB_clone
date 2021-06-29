@@ -50,3 +50,5 @@ class BaseModel:
         dictionary["created_at"] = self.created_at.isoformat()
         dictionary["updated_at"] = self.updated_at.isoformat()
         return dictionary
+
+print("prueba")
