@@ -52,3 +52,4 @@ class BaseModel:
         return dictionary
 
 print("prueba")
+print("prueba2")
