@@ -12,18 +12,15 @@ class BaseModel:
         """ Constructor to initialize the attribute with args and kwars """
         if kwargs:
             for key in kwargs:
-                if "created_at" in kwargs
-                and type(kwargs["created_at"]) is str:
+                if "created_at" in kwargs:
                     self.created_at = datetime.strptime(
                         kwargs["created_at"], "%Y-%m-%dT%H:%M:%S.%f")
 
-                if "updated_at" in kwargs
-                and type(kwargs["updated_at"]) is str:
+                if "updated_at" in kwargs:
                     self.updated_at = datetime.strptime(
                         kwargs["updated_at"], "%Y-%m-%dT%H:%M:%S.%f")
 
-                if key != "__class__" and key != "created_at"
-                and key != "updated_at":
+                if key != "__class__" and key != "created_at" and key != "updated_at":
                     setattr(self, key, kwargs[key])
 
         else:
