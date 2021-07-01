@@ -6,7 +6,15 @@ from models.engine.file_storage import FileStorage
 import json
 import pep8
 
+
 class TestFileStorage(unittest.TestCase):
+    """Unittest for file_storage.py"""
+    storage = FileStorage()
+    path = storage._FileStorage__file_path
+
+    def test_storage_isinstance(self):
+        """Tests if storage is an instance of FileStorage"""
+        self.assertIsInstance(TestFileStorage.storage, FileStorage)
 
     def test_pep8(self):
         """Test that models/base.py conforms to PEP8."""
@@ -25,3 +33,4 @@ class TestFileStorage(unittest.TestCase):
         self.assertIsNotNone(FileStorage.new.__doc__)
         self.assertIsNotNone(FileStorage.save.__doc__)
         self.assertIsNotNone(FileStorage.reload.__doc__)
+
