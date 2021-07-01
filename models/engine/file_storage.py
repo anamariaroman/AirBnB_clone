@@ -3,7 +3,7 @@
 
 import json
 from models.base_model import BaseModel
-classes = {
+classe = {
         "BaseModel": BaseModel,
 }
 
@@ -41,7 +41,7 @@ class FileStorage():
             with open(self.__file_path, 'r') as file:
                 f = json.load(file)
                 for key in f:
-                    self.__objects[key] = classes[f[key]
+                    self.__objects[key] = classe[f[key]
                                                   ["__class__"]](**f[key])
         except BaseException:
             pass
