@@ -9,7 +9,6 @@ from models.base_model import BaseModel
 
 
 class HBNBCommand(cmd.Cmd):
-    intro = 'Welcome to the HBNB shell.   Type help or ? to list commands.\n'
     prompt = '(hbnb) '
 
     # ----- basic HBNB commands -----
@@ -23,7 +22,7 @@ class HBNBCommand(cmd.Cmd):
 
     def emptyline(self):
         """Handles when entering an empty line."""
-        pass
+        return False
 
 if __name__ == '__main__':
     # Start running the cmd loop
