@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-""" 
+"""
 Command Line Interpreter source code for managing the
 serialization and deserialization, attributes and
-methods of the object classes present in the AirBnB clone.  
+methods of the object classes present in the AirBnB clone.
 """
 import cmd, sys
 
