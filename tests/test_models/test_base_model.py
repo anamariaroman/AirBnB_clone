@@ -4,6 +4,7 @@ import unittest
 import datetime
 from models.base_model import BaseModel
 
+
 class TestBaseModel(unittest.TestCase):
     """Test the BaseModel class"""
 
@@ -52,3 +53,9 @@ class TestBaseModel(unittest.TestCase):
         base_2 = BaseModel()
         self.assertNotEqual(base_1.created_at, base_2.updated_at)
 
+    def test_save(self):
+        """ Test Base MOdel save method """
+        my_model = BaseModel()
+        updated = my_model.updated_at
+        my_model.save()
+        self.assertFalse(updated == my_model.updated_at)
