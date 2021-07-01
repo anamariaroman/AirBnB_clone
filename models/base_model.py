@@ -3,6 +3,7 @@
 import uuid
 from datetime import datetime
 import models
+format = "%Y-%m-%dT%H:%M:%S.%f"
 
 
 class BaseModel:
@@ -11,17 +12,17 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """ Constructor to initialize the attribute with args and kwars """
         if kwargs:
-            for key in kwargs:
-                if "created_at" in kwargs:
-                    self.created_at = datetime.strptime(
-                        kwargs["created_at"], "%Y-%m-%dT%H:%M:%S.%f")
 
-                if "updated_at" in kwargs:
-                    self.updated_at = datetime.strptime(
-                        kwargs["updated_at"], "%Y-%m-%dT%H:%M:%S.%f")
-
+            for key, value in kwargs.items():
                 if key != "__class__":
-                    setattr(self, key, kwargs[key])
+                    setattr(self, key, value)
+
+            if hasattr(self, "created_at") and type(self.created_at) is str:
+                self.created_at = datetime.strptime(
+                    kwargs["created_at"], format)
+            if hasattr(self, "updated_at") and type(self.updated_at) is str:
+                self.updated_at = datetime.strptime(
+                    kwargs["updated_at"], format)
 
         else:
             self.id = str(uuid.uuid4())
@@ -45,7 +46,11 @@ class BaseModel:
         all key/values of __dict__ of the instance
         """
         dictionary = self.__dict__.copy()
+        if "created_at" in dictionary:
+            dictionary["created_at"] = dictionary["created_at"].strftime(
+                format)
+        if "updated_at" in dictionary:
+            dictionary["updated_at"] = dictionary["updated_at"].strftime(
+                format)
         dictionary["__class__"] = self.__class__.__name__
-        dictionary["created_at"] = self.created_at.isoformat()
-        dictionary["updated_at"] = self.updated_at.isoformat()
         return dictionary

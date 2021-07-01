@@ -3,6 +3,9 @@
 
 import json
 from models.base_model import BaseModel
+classes = {
+        "BaseModel": BaseModel,
+}
 
 
 class FileStorage():
@@ -28,13 +31,17 @@ class FileStorage():
         for key, value in FileStorage.__objects.items():
             obj[key] = value.to_dict()
         with open(FileStorage.__file_path, "w") as file:
-            json.dump(obj, file, ident=4)
+            json.dump(obj, file)
 
     def reload(self):
         """ Deserializes the JSON file to __objects """
+    def reload(self):
+        """Deserializes the JSON file to __objects."""
         try:
-            with open(FileStorage.__file_path ,"r") as file:
-                for key, value in (json).load(file).items():
-                    self.__objects[key] = eval(value["__class__"]+"(**the_value)")
+            with open(self.__file_path, 'r') as file:
+                f = json.load(file)
+                for key in f:
+                    self.__objects[key] = classes[f[key]
+                                                  ["__class__"]](**f[key])
         except BaseException:
             pass
