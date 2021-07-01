@@ -22,7 +22,7 @@ class TestFileStorage(unittest.TestCase):
         result = pep8_style.check_files(["models/base_model.py"])
         # unit testing to check the equality of two values
         # assertEqual(firstValue, secondValue, message)
-        self.assertEqual(result.total_errors, 0, 
+        self.assertEqual(result.total_errors, 0,
                         "Found code style errors and warnings found.")
 
     def test_docstring(self):
