@@ -9,6 +9,7 @@ from models.base_model import BaseModel
 
 
 class HBNBCommand(cmd.Cmd):
+    intro = 'Welcome to the HBNB shell. Type help or ? to list commands.\n'
     prompt = '(hbnb) '
 
     # ----- basic HBNB commands -----
