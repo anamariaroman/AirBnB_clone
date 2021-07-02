@@ -57,6 +57,8 @@ $
 ```
 <h2>Examples</h2> <br>
 
+---
+
 <h2 align="center">Authors 👩👩👩</h2> <br>
 
 - Ana María Román Valencia | [Github](https://github.com/anamariaroman) | [Twiter](https://twitter.com/AnaMari77939013)
