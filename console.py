@@ -7,9 +7,13 @@ methods of the object classes present in the AirBnB clone.
 import cmd
 from models.base_model import BaseModel
 from models import storage
-
+classe = {
+        "BaseModel": BaseModel,
+}
 
 my_dict = ["BaseModel", "User"]
+line = list()
+
 class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
 
@@ -48,6 +52,27 @@ class HBNBCommand(cmd.Cmd):
         # If line empty
         else:
             print("** class name missing **")
+
+    def do_show(self, line):
+        """ Method that prints the string representation of an instance
+        based on the class name and id. """
+
+        line = line.split()
+    if len(line) == 0:
+        print("** class name missing **")
+    if line[0] not in classe:
+        print("** class doesn't exist **")
+    if len(line) < 2:
+        print("** instance id missing **")
+    else:
+        if len(line) > 1:
+            key = line[0] + "." + line[1]
+            if key in models.storage.all():
+                print(models.storage.all()[key])
+            else:
+                print("** no instance found **")
+        else:
+            print("** instance id missing **")
 
 if __name__ == '__main__':
     # Start running the cmd loop
