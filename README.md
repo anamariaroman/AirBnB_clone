@@ -63,7 +63,7 @@ $
 ### [2.Unittests](tests/)
 * All your files, classes, functions must be tested with unit tests
 
-### [3.BaseModel](models/base_model.py/__init__.py, tests/)
+### [3.BaseModel](models/base_model.py/__init__.py)
 * Write a class BaseModel that defines all common attributes/methods for other classes
 
 ### [4.Create BaseModel from dictionary](models/base_model.py, tests/)
