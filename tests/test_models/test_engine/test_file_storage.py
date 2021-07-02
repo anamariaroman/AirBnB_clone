@@ -16,6 +16,23 @@ class TestFileStorage(unittest.TestCase):
         """Tests if storage is an instance of FileStorage"""
         self.assertIsInstance(TestFileStorage.storage, FileStorage)
 
+    def test_FileStorage_instantiation_no_args(self):
+        """Checks correct storage instantiation."""
+        self.assertEqual(type(FileStorage()), FileStorage)
+
+    def test_FileStorage_instantiation_with_arg(self):
+        """Checks inappropiate args type """
+        with self.assertRaises(TypeError):
+            FileStorage(None)
+
+    def test_FileStorage_file_path_is_private_str(self):
+        """Checks if file path is a string"""
+        self.assertEqual(str, type(FileStorage._FileStorage__file_path))
+
+    def testFileStorage_objects_is_private_dict(self):
+        """Chechks if instance is a private dict"""
+        self.assertEqual(dict, type(FileStorage._FileStorage__objects))
+
     def test_pep8(self):
         """Test that models/base.py conforms to PEP8."""
         pep8_style = pep8.StyleGuide(quiet=True)
@@ -33,3 +50,27 @@ class TestFileStorage(unittest.TestCase):
         self.assertIsNotNone(FileStorage.new.__doc__)
         self.assertIsNotNone(FileStorage.save.__doc__)
         self.assertIsNotNone(FileStorage.reload.__doc__)
+
+class TestFileStorage_methods(unittest.TestCase):
+    """Check correct implementation of all() method."""
+    def test_dict(self):
+        """Checks for correct type of dict."""
+        dictionary = FileStorage().all()
+        self.assertEqual(type(dictionary), dict)
+
+    def test_error(self):
+        """Checks if error raises."""
+        with self.assertRaises(TypeError):
+            dictionary = FileStorage().all(None)
+    
+class TestFileStorage_new_save(unittest.TestCase):
+    """Checks correct implementation of new(), save() and reload()
+    method."""
+
+    def test_Base_new(self):
+        """Checks object type BaseModel newly created in __objects"""
+        obj_dict = FileStorage().all()
+        bm1 = BaseModel()
+        FileStorage().new(bm1)
+        key = "BaseModel." + bm1.id
+        self.assertIn(key, obj_dict.keys())
