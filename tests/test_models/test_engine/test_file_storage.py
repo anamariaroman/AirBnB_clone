@@ -21,13 +21,16 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(type(FileStorage()), FileStorage)
 
     def test_FileStorage_instantiation_with_arg(self):
+        """Checks inappropiate args type """
         with self.assertRaises(TypeError):
             FileStorage(None)
 
     def test_FileStorage_file_path_is_private_str(self):
+        """Checks if file path is a string"""
         self.assertEqual(str, type(FileStorage._FileStorage__file_path))
 
     def testFileStorage_objects_is_private_dict(self):
+        """Chechks if instance is a private dict"""
         self.assertEqual(dict, type(FileStorage._FileStorage__objects))
 
     def test_pep8(self):
@@ -60,7 +63,7 @@ class TestFileStorage_methods(unittest.TestCase):
         with self.assertRaises(TypeError):
             dictionary = FileStorage().all(None)
     
-class TestFileStorage02(unittest.TestCase):
+class TestFileStorage_new_save(unittest.TestCase):
     """Checks correct implementation of new(), save() and reload()
     method."""
 
