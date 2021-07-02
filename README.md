@@ -57,10 +57,26 @@ $
 ```
 <h2>Examples</h2> <br>
 
----
 
+
+---
 ### [2.Unittests](tests/)
 * All your files, classes, functions must be tested with unit tests
+
+### [3.BaseModel](models/base_model.py/__init__.py, tests/)
+* Write a class BaseModel that defines all common attributes/methods for other classes
+
+### [4.Create BaseModel from dictionary](models/base_model.py, tests/)
+* we created a method to generate a dictionary representation of an instance 
+
+### [5.Store first object](models/engine/file_storage.py, models/engine/__init__.py, models/__init__.py, models/base_model.py, tests/)
+* we can recreate a BaseModel from another one by using a dictionary
+
+### [6.Console 0.0.1](console.py)
+* Write a program called console.py
+
+---
+
 
 <h2 align="center">Authors 👩👩👩</h2> <br>
 
