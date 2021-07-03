@@ -82,6 +82,24 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** instance id missing **")
 
+    def do_all(self, line):
+        """ Method for printing all the objects """
+        # Reload all instances from the .json file
+        storage.reload()
+        # Get the dictionary of objects
+        dicto = storage.all()
+        # Create empty list for printing
+        args = line.split(" ")
+        if args[0] not in classe:
+            print("** class doesn't exist **")
+        else:
+            list_of_str = []
+            if line:
+                for obj in dicto.keys():
+                    if args[0] in obj:
+                        list_of_str.append(str(dicto[obj]))
+                print(list_of_str)
+                
 if __name__ == '__main__':
     # Start running the cmd loop
     HBNBCommand().cmdloop()
