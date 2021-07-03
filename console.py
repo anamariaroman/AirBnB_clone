@@ -90,16 +90,39 @@ class HBNBCommand(cmd.Cmd):
         dicto = storage.all()
         # Create empty list for printing
         args = line.split(" ")
+        # Asks if class name is in classe dict
         if args[0] not in classe:
             print("** class doesn't exist **")
         else:
+            # Create empty list for printing
             list_of_str = []
+            # If line exists
             if line:
+                # If class name is in dicto
                 for obj in dicto.keys():
                     if args[0] in obj:
+                        # append their str representation
                         list_of_str.append(str(dicto[obj]))
                 print(list_of_str)
-                
+
+    def do_destroy(self, line):
+        """Method for destroying an object using its id"""
+        if line:
+            dicto = storage.all()
+            args = line.split()
+            #Compare given class name against list of classes
+            for name in classe:
+                if args[0] == name:
+                    break
+            if len(args) > 1:
+                # Create ClassName.id string
+                key = args[0] + "." + args[1]
+                dicto.pop(key)
+            else:
+                print("** instance id missing **")
+        else:
+            print("** class name missing **")
+
 if __name__ == '__main__':
     # Start running the cmd loop
     HBNBCommand().cmdloop()
