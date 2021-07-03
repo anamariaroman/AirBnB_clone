@@ -49,35 +49,49 @@ class Testamenity(unittest.TestCase):
         place = Place()
         self.assertTrue(hasattr(place, "number_rooms"))
         self.assertEqual(type(place.number_room, int))
-        self.assertIsEqual(place.number_rooms, 0)
+        self.assertEqual(place.number_rooms, 0)
 
     def test_number_bath(self):
         """Test Place has attr number_bath and its an int == 0"""
         place = Place()
         self.assertTrue(hasattr(place, "number_bathrooms"))
         self.assertEqual(type(place.number_bathrooms, int))
-        self.assertIsEqual(place.number_rooms, 0)
+        self.assertEqual(place.number_rooms, 0)
 
     def test_max_guest(self):
         """Test Place has attr max_guest and its an int == 0"""
         place = Place()
         self.assertTrue(hasattr(place, "max_guest"))
         self.assertEqual(type(place.max_guest, int))
-        self.assertIsEqual(place.max_guets, 0)
+        self.assertEqual(place.max_guets, 0)
 
     def test_price_by_night(self):
         """Test Place has attr price_by_night and its an int == 0"""
         place = Place()
         self.assertTrue(hasattr(place, "price_by_night"))
         self.assertEqual(type(place.price_by_night, int))
-        self.assertIsEqual(place.price_by_night, 0)
+        self.assertEqual(place.price_by_night, 0)
 
     def test_latitude_attr(self):
         """Test Place has attr latitude_attr and its an int == 0"""
         place = Place()
         self.assertTrue(hasattr(place, "latitude"))
         self.assertEqual(type(place.latitude, float))
-        self.assertIsEqual(place.latitude, 0.0)
+        self.assertEqual(place.latitude, 0.0)
+
+    def test_longitud_attr(self):
+        """Test Place has attr longitud and its an int == 0"""
+        place = Place()
+        self.assertTrue(hasattr(place, "longitud"))
+        self.assertEqual(type(place.longitud, float))
+        self.assertEqual(place.longitud, 0.0)
+
+    def test_amenity_ids_attr(self):
+        """Test Place has attr longitud and its an int == 0"""
+        place = Place()
+        self.assertTrue(hasattr(place, "amenity_ids"))
+        self.assertEqual(type(place.amenity_ids, list))
+        self.assertEqual(len(place.amenity_ids, 0)
 
 if __name__ == "__main__":
     unittest.main()
