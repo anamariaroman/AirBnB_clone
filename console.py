@@ -6,18 +6,34 @@ methods of the object classes present in the AirBnB clone.
 """
 import cmd
 from models.base_model import BaseModel
+import models
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 from models import storage
+import models.engine.file_storage
+
 classe = {
-        "BaseModel": BaseModel,
+        "BaseModel": BaseModel(),
+        "Amenity": Amenity(),
+        "City": City(),
+        "Place": Place(),
+        "State": State(),
+        "User": User(),
+        "Review": Review()
 }
 
 my_dict = ["BaseModel", "User"]
 line = list()
 
+
 class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
-
     # ----- basic HBNB commands -----
+
     def do_EOF(self, line):
         """Command to exit the program"""
         return True
@@ -56,7 +72,7 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, line):
         """ Method that prints the string representation of an instance
         based on the class name and id. """
-    
+
         # If line exists.
         if line:
             # Slipt arguments.
@@ -64,7 +80,7 @@ class HBNBCommand(cmd.Cmd):
             if len(args) == 0:
                 print("** class name missing **")
                 return
-            #for name in my_dict:
+            # for name in my_dict:
             if args[0] not in classe:
                 print("** class doesn't exist **")
                 return
@@ -108,20 +124,43 @@ class HBNBCommand(cmd.Cmd):
     def do_destroy(self, line):
         """Method for destroying an object using its id"""
         if line:
-            dicto = storage.all()
-            args = line.split()
-            #Compare given class name against list of classes
-            for name in classe:
-                if args[0] == name:
-                    break
+            args = line.split(' ')
+            # Compare given class name against list of classes
             if len(args) > 1:
                 # Create ClassName.id string
                 key = args[0] + "." + args[1]
-                dicto.pop(key)
+            if not args[0] and len(args) == 1:
+                print("** class name missing **")
+            elif args[0] not in classe:
+                print("** class doesn't exist **")
+            elif key not in models.storage.all():
+                print("** no instance found **")
             else:
-                print("** instance id missing **")
-        else:
+                models.storage.all().pop(key)
+                models.storage.save()
+
+    def do_update(self, line):
+        """Method for destroying an object using its id"""
+        args = line.split(' ')
+        # Compare given class name against list of classes
+        if len(args) > 1:
+            # Create ClassName.id string
+            key = args[0] + "." + args[1]
+        if not args[0] and len(args) == 1:
             print("** class name missing **")
+        elif args[0] not in classe:
+            print("** class doesn't exist **")
+        elif len(args) < 2:
+            print("** instance id missing **")
+        elif key not in models.storage.all():
+            print("** no instance found **")
+        elif len(args) < 3:
+            print("** attribute name missing **")
+        elif len(args) < 4:
+            print("** value missing **")
+        else:
+            setattr(models.storage.all()[key], args[2], args[3])
+            models.storage.save()
 
 if __name__ == '__main__':
     # Start running the cmd loop
