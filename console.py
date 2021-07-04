@@ -47,6 +47,7 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_create(self, line):
+        """ Method for creating a new class instance."""
         # If line exists
         if line:
 
