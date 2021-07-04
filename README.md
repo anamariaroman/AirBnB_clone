@@ -48,7 +48,7 @@ This project was interpreted and tested on Ubuntu 20.04 LTS using python3 (versi
 
 -This is an overview of how the project is going to evolve in the future! It's quite magnifique, isn't it!?
 
-<a href="https://github.com/anamariaroman/AirBnB_clone"><img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/815046647d23428a14ca.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20210704%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210704T151931Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=f4f6b9016e4de9eed89ae902112ed60fa91c7f3479228145e7cdeb8f3f5a0ec8" alt=""></a>
+<a href="https://github.com/anamariaroman/AirBnB_clone"><img src="https://github.com/anamariaroman/AirBnB_clone/blob/master/images/storage_engines.png?raw=true" alt=""></a>
 
 ---
 
