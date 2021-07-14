@@ -12,7 +12,7 @@
   .filters button {
 	font-size: 18px;
 	background-color: #ff5a5f;
-	color: FFFFFF;
+	color: #FFFFFF;
 	height: 48px;
 	width: 20%;
 	border: none;
@@ -24,4 +24,3 @@
   .filters button:hover {
 	opacity: 0.9;
   }
-  
